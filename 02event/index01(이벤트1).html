@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button onclick="alert('경고경고!!')">인라인 이벤트</button> -->
+    <!-- <button onclick="var a = 1;
+                    alert('a')">인라인 이벤트</button>
+ -->
+    <!--    <button onclick="function aa(){
+    alert(1)
+}
+aaa();">인라인 이벤트</button> -->
+    <button onclick="aaa();">인라인 이벤트</button>
+
+    <!--  <button onclick="bbb(1);">1</button> --> <!-- 매개변수 전달 가능 -->
+    <!-- <button onclick="bbb(1)">1</button>
+    <button onclick="bbb(2)">2</button>
+    <button onclick="bbb(3)">3</button> -->
+    <button onclick="bbb(this)">1</button> <!-- 태그를 객체로 생각하면 this는 나 자신을 매개변수로 준다 -->
+    <button onclick="bbb(this)">2</button>
+    <button onclick="bbb(this)">3</button>
+    <script>
+        //인라인 이벤트 - 함수의 선언은 script에서 하고, 태그에서 연결
+        function aaa() {
+            alert(1);
+        }
+
+        function bbb(a) { //매개변수 가능
+            //this가 태그에서 사용되면 태그 자기 자신을 가리킴
+            console.log(a); //태그의 매개변수 값에 this가 입력 됐을 경우 a는 태그 자체 반환, 값이 숫자로 있을 경우 숫자 반환
+            a.innerHTML = 'hellooo'; //버튼 누르면 hellooo로 바뀌는 동작 => 어느 태그를 클릭했는지 식별이 가능함
+        }
+    </script>
+</body>
+
+</html>

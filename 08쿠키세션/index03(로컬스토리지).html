@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>localStorage 사용하기</h3>
+    <button onclick="createSession()">세션만들기</button>
+    <button onclick="removeSession()">세션삭제하기</button>
+
+
+    <script>
+        /* 
+        localStorage와 sessionStorage는 브라우저의 키=값 형태로 데이터를 저장하는 브라우저 측의 세션
+
+        localStorage는 브라우저를 종료하더라도 지속 (영구 지속)
+        sessionStorage는 브라우저를 종료하면 사라짐
+
+        쿠키와 상당히 비슷한데 쿠키와 다른 점은?
+        - 쿠키는 서버 간 전송이 가능
+        - 스토리지는 브라우저에서만 사용할 수 있다
+        */
+       /* 
+        setItem(key, value) – 키-값 쌍을 보관합니다.
+        getItem(key) – 키에 해당하는 값을 받아옵니다.
+        removeItem(key) – 키와 해당 값을 삭제합니다.
+        clear() – 모든 것을 삭제합니다.
+        key(index) – 인덱스(index)에 해당하는 키를 받아옵니다, getItem이랑은 다름, 차이점 검색해보기
+        length – 저장된 항목의 개수를 얻습니다.
+       */
+
+        function createSession() {
+            //스토리지에는 순수한 문자열만 저장이 됨
+            //순수한 Object(객체)로 저장하려면 JSON.stringify() 치환해서 저장
+            //저장
+            localStorage.setItem("aaa", "홍길동");
+            // localStorage.setItem("bbb", [1, 2, 3]);
+
+            //Object 타입을 그대로 저장하고 싶으면 JSON.stringify([1, 2, 3])으로 작성
+            localStorage.setItem("bbb", JSON.stringify([1, 2, 3]));
+
+            //사용
+            var aaa = localStorage.getItem("aaa"); //키
+            var bbb = localStorage.getItem("bbb");
+
+            console.log(aaa);
+            console.log(bbb);
+            console.log(typeof bbb[0]); //string, 문자열로 인식
+
+            //사용할 땐 JSON.parse(bbb)로 입력
+            console.log(JSON.parse(bbb));
+        }
+
+        function removeSession() {
+            localStorage.removeItem("aaa"); //삭제
+        }
+
+    </script>
+</body>
+</html>

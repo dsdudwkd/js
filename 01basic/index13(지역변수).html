@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var 변수의 유효범위는 함수이다 (변수의 중복 선언 o)
+        var num = 50; //전역 변수
+        if(true){
+            var num1 = 100; //전역 변수
+            var num1 = 111; 
+        }
+        console.log(num1); //111
+
+        var num2 = 10; //전역 변수
+        function add() {
+            var num2 = 200; //함수 안에 있는 변수는 지역변수
+        }
+        console.log(num2); //10
+
+        //ES6부터 나온 - let 변수, 중괄호 스코프 (변수의 중복 선언 x)
+        let x1 = 100;
+        if(true) {
+            let x2 = 200; //지역변수
+            //let x2 = 300; //error
+        }
+        console.log(x1); //100
+        //console.log(x2); //error
+
+        let x3 = 100; //전역 변수
+        function add2(){
+            let x4 = 200;
+        }
+        //console.log(x4); //error
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="popup(선생님)js"></script>
+   
+</head>
+<body>
+    <div>내용</div>
+
+    오늘 하루 이 창 열지 않기 <input type="checkbox" onclick="popupClose()">
+
+    <script>
+        //체크박스 클릭하면 쿠키 생성 완료
+        function popupClose() {
+            //하루 동안 유지할 쿠키 생성
+            window.close(); //팝업창 종료
+            createCookie(); //쿠키 호출
+        }
+    </script>
+</body>
+</html>

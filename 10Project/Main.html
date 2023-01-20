@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="Main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="main_ground">
+    <div class="main_wrap">
+
+        <header style="background-color: white; ">
+            <div style="margin: 0 auto; width: 1010px; height: 40px; text-align: center; ">
+                <h3>신데렐라 잠못자면 모짜렐라(여기가 헤더)</h3>
+            </div>
+        </header>
+
+        
+        
+        <section>
+            <div class="title">
+                <canvas id="canvas">
+                </canvas>
+                <h2>우주의 세계로</h2>
+                <p>다양한 천문지식과 사람들의 천문사진들을 구경하세요.</p>
+            </div>
+            <div class="menu_search">
+
+            </div>
+
+            <div class="home_menu">
+                <ul class="main_box">
+                    <li class="box1">
+                        <p class="box_title">생활 속 천문학</p>
+                        <p class="box_content">생활 속에서 만날 수 있는 천문학 정보</p>
+                        <div>
+                            <a href="#">보러가기</a>
+                        </div>
+                    </li>
+                    <li class="box2">
+                        <p class="box_title">별자리 정보</p>
+                        <p class="box_content">계절별 별자리와 별자리의 출몰 시간</p>
+
+                        <div>
+                            <a href="#">보러가기</a>
+                        </div>
+                    </li>
+                    <li class="box3">
+                        <p class="box_title">천체관측 추천 장소</p>
+                        <p class="box_content">우리나라 별이 가장 잘 보이는 장소들</p>
+
+                        <div>
+                            <a href="recommend.html">보러가기</a>
+                        </div>
+                    </li>
+                    <li class="box4">
+                        <p class="box_title">천체사진 게시판</p>
+                        <p class="box_content">사람들과 공유하는 자기만의 천체사진</p>
+
+                        <div>
+                            <a href="https://astro.kasi.re.kr/information/astroGallery/astroContest">보러가기</a>
+                        </div>
+                    </li>
+                    <li class="box5">
+                        <p class="box_title">천문학 관련 자료</p>
+                        <p class="box_content">천문학과 관련된 자료들을 모아놓은 곳</p>
+
+                        <div>
+                            <a href="#">보러가기</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </section>
+
+        <div class="main_vr">
+            <div class="img_1"></div>
+            <div class="img_2"></div>
+            <div class="img_3"></div>
+            <div class="img_4"></div>
+        </div>
+
+
+
+        <footer>
+            <div class="footerline">
+                <div class="footer-top">
+                    <span><a href="#" class="">개인정보처리방침</a></span>
+                    <span><a href="#" class="">저작권정책</a></span>
+                    <span><a href="#" class="">관련사이트</a></span>
+                </div>
+            </div>
+            <div class="footerline">
+                <div class="footer-bottom">
+                    <span>서울특별시 강남구 테헤란로7길 7</span>
+                    <span>전화: 080-123-4567 / 02-123-5678</span>
+                    <span>천문정보 ARS: 000-000-0000</span>
+                    <span>팩스: 000-000-0000</span><br>
+                    <span>Copyright (C) 2017 Korea Astronomy and Space Science Institute. All Rights Reserved.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        /* var footer_top = document.querySelector(".footer-top > span > a");
+
+        footer_top.onfocus = function() {
+            footer_top.classList.toggle("footer-on");
+            console.log("작동");
+        } */
+
+        var main_vr = document.querySelectorAll(".main_vr > div");
+
+
+        var i = 0;
+
+        setInterval(function () {
+            i++;
+            main_vr[i % 4].classList.add("fadeIn");
+            setTimeout(function () {
+                for (var j = 0; j < 4; j++) {
+                    if (i % 4 === j) {
+                        continue;
+                    } else {
+                        main_vr[j].classList.remove("fadeIn");
+                    }
+                }
+
+            }, 700)
+
+
+        }, 5000);
+
+        /* 아날로그 시계 */
+
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height/2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        var img = new Image();
+        img.src = "img/moon1.jpg";
+        setInterval(drawClock, 1000);
+        
+        function drawClock() {
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        }
+
+        function drawFace(ctx, radius) {
+            var grad;
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = ctx.createPattern(img,"repeat");
+            ctx.fill();
+            
+            grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+            grad.addColorStop(0, 'black');
+            grad.addColorStop(0.5, 'black');
+            grad.addColorStop(1, 'black');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = radius * 0.01;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.05, 0, 2 * Math.PI);
+            ctx.fillStyle = 'black';
+            ctx.fill();
+        }
+
+        function drawNumbers(ctx, radius) {
+            var ang;
+            var num;
+            ctx.font = radius * 0.15 + "px arial";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            for (num = 1; num < 13; num++) {
+                ang = num * Math.PI / 6;
+                ctx.rotate(ang);
+                ctx.translate(0, -radius * 0.85);
+                ctx.rotate(-ang);
+                ctx.fillText(num.toString(), 0, 0);
+                ctx.rotate(ang);
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-ang);
+            }
+        }
+
+        function drawTime(ctx, radius) {
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            //hour
+            hour = hour % 12;
+            hour = (hour * Math.PI / 6) +
+                (minute * Math.PI / (6 * 60)) +
+                (second * Math.PI / (360 * 60));
+            drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+            //minute
+            minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+            drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+            // second
+            second = (second * Math.PI / 30);
+            drawHand(ctx, second, radius * 0.9, radius * 0.02);
+        }
+
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0, 0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

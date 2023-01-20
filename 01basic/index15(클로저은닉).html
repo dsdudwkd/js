@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function obj() {
+            var name = "홍길동";
+            
+            //get메서드
+            // return function(){
+            //     return name;
+            // }
+
+            //set메서드
+            // return function(aaa) {
+            //     name = aaa;
+            //     console.log(name);
+            // }
+            return {
+                getName : function(){ //키에 function 저장
+                    return name;
+                },
+                setName : function(aaa){
+                    name = aaa;
+                }
+            }
+        }
+
+        // var getObj = obj();
+        // console.log(getObj());
+
+        // var setObj = obj(); //setObj는 function
+        // setObj("이순신");
+
+        var result = obj();//obj반환
+        result.setName("이순신"); //setter
+        console.log(result.getName()); //이순신, getter
+    </script>
+</body>
+</html>

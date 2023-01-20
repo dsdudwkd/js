@@ -1,0 +1,157 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    
+}
+
+
+.main_ground{
+    /* background-color: rgb(112, 111, 111); */
+    height: 100%;
+    position: relative;
+}
+.main_wrap{
+    height: 975px;
+    position: relative;
+    /* background-image: url("img/astro2.jpg"); */
+    /* transition: all 4s;
+    transform: scale(1.3); */
+    
+}
+section{
+    width: 1010px;
+    margin: 0 auto;
+    height: 750px;
+    margin-bottom: 70px;
+}
+section .title{
+    text-align: center;
+    max-width: 1460px;
+    padding: 210px 0 60px;
+}
+section .title h2 {
+    padding: 10px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    
+}
+section .title p {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+section .home_menu {
+    overflow: hidden;
+    color: white;
+}
+section .home_menu li{
+    float: left;
+    width: 19.8%;
+    height: 230px;
+    background-color: rgba(0, 0, 0, 0.274);
+    margin-right: 2px;
+    text-align: center;
+    padding: 50px 12px;
+    box-sizing: border-box;
+    
+}
+section .home_menu .box1{
+   /*  background-image: url("img/box1.jpg");
+    opacity: 0; */
+    
+}
+section .home_menu .box1:hover{
+    background-color: rgba(255, 166, 0, 0.384);
+    transition: all 0.5s;
+    
+}
+section .home_menu .box2:hover{
+    background-color: rgba(188, 197, 66, 0.479);
+    transition: all 0.5s;
+}
+section .home_menu .box3:hover{
+    background-color: rgba(48, 197, 110, 0.479);
+    transition: all 0.5s;
+}
+section .home_menu .box4:hover{
+    background-color: rgba(31, 50, 219, 0.479);
+    transition: all 0.5s;
+}
+section .home_menu .box5:hover{
+    background-color: rgba(129, 32, 194, 0.479);
+    transition: all 0.5s;
+}
+
+section .home_menu .box_title{
+    font-weight: 800;
+    
+    margin-bottom: 10px;
+}
+section .home_menu .box_content{
+    font-size: 13px;
+    color: rgb(156, 156, 156);
+}
+section .home_menu .main_box a{
+    margin-top: 25px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 13px;
+    transition: all 1s;
+}
+section .home_menu .main_box a:hover{
+    background-color: white;
+    color: black;
+    
+}
+.main_box div{
+    padding-top: 30px;
+}
+.main_vr > div{
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -20;
+    width: 100%;
+    height: 100%;
+}
+.img_1{
+    background-image: url("img/astro1.jpg");
+    
+    
+}
+.img_2{
+    background-image: url("img/astro2.jpg");
+    
+    
+}
+.img_3{
+    background-image: url("img/astro3.jpg");
+    
+}
+.img_4{
+    background-image: url("img/astro4.jpg");
+    
+    
+} 
+.fadeIn{
+    /* opacity: 1 !important; */
+    
+    /* transition-timing-function: ease-out !important; */
+    transition-duration: 5s !important ;
+    transform: scale(1.3) !important;
+    /* background-image: url("img/astro3.jpg"); */
+    z-index: -10 !important;
+}
+
+#canvas{
+    width: auto;
+    height: auto;
+    padding-left: 150px;
+}

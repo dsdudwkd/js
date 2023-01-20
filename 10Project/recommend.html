@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- css 링크 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- jquery 링크 -->
+    <script src="jquery/jquery-3.6.3.min.js"></script>
+    <!-- 부트스트랩 테마가 필요하면 이쯤 추가.. -->
+    <!-- js 링크 -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- 커스터마이징 디자인 -->
+    <link rel="stylesheet" href="recommend.css">
+
+    <!-- 스크롤 라이브러리  -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- fullpage -->
+    <link rel="stylesheet" href="jquery/jquery.fullPage.css">
+    <script src="jquery/jquery.fullPage.js"></script>
+    <script src="recommend.js"></script>
+
+    <!-- footer -->
+    <!-- <link rel="stylesheet" href="footer.css"> -->
+</head>
+
+<body>
+    <!-- 메뉴바 -->
+
+    <nav class="navbar navbar-inverse">
+
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Main.html"> <span class="img">
+                        <img src="img/logo.png" style="height: 25px; width: 250px;">
+                    </span></a>
+            </div>
+            <div class="menuparent">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Main.html">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">생활천문관
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">일출일몰시각</a></li>
+                            <li><a href="#">계산</a></li>
+                            <li><a href="#">월별 해/달 출몰시각</a></li>
+                            <li><a href="#">태양 고도/방위각 계산</a></li>
+                            <li><a href="#">월별천문현상</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">천문학습관
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">태양계</a></li>
+                            <li><a href="#">일식</a></li>
+                            <li><a href="#">월식</a></li>
+                            <li><a href="#">천체</a></li>
+                            <li><a href="#">천체물리학</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">천문갤러리
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">천체사진 공모전수상작</a></li>
+                            <li><a href="#">천문현상 사진및영상</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">커뮤니티
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">자주하는질문</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="#">관광명소</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+        <!-- 제목 및 내용 -->
+    <section>
+        <div class="container" id="fullpage">
+            <div class="wrap">
+
+                <!-- 제목 -->
+                <div class="title section content0">
+                    <!--  <video id="video" autoplay muted loop>
+                        <source src="img/bg.mp4" type="video/mp4">
+                    </video> -->
+                    <div class="inner-title">
+                        <h3>국내 별 관측 추천 명소</h3>
+                        <p>별과 은하수가 쏟아지는 국내 명소입니다.</p>
+                    </div>
+                </div>
+
+                <!-- 안반데기 -->
+                <div class="content content1 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>안반데기</h4><br><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p>해발 1100m 고산지대에 위치해 ‘안반’은 떡을 칠 때 아래에 받치는 넓은 나무 판을, ‘데기’는 평평한 땅을 뜻한다.<br>
+                                        은하수와 많은 별을 볼 수 있어 차박 명소로 유명해졌다.</p>
+                                </li><br>
+                                <li>
+                                    <h5>위치정보</h5>
+                                    <p> 강원도 강릉시 왕산면 안반덕길 428</p>
+                                </li>
+                                <li><a href="http://www.xn--ok0bo3h6vi1zj.kr/default/">more info</a>
+                                </li>
+                                <li>
+                                    <a href="https://map.kakao.com/?from=roughmap&eName=%EC%95%88%EB%B0%98%EB%8D%B0%EA%B8%B0&eX=883845.0&eY=1148919.0"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map1" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 중미산 천문대 -->
+                <div class="content content2 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>중미산 천문대</h4><br><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p>우리나라 천문 및 자연 체험학습의 선두 업체로 국내 최초의 유아 및 어린이 천문우주과학 체험학습을 실시한 체험학습 기관.<br> 수도권에서 가장
+                                        많은
+                                        별을 볼 수 있는 곳</p>
+                                </li><br>
+                                <li>
+                                    <h5>위치정보</h5>
+                                    <p>경기도 양평군 옥천면 중미산로 1268</p>
+                                </li>
+                                <li><a href="http://www.astrocafe.co.kr/main/main.php">more info</a>
+                                </li>
+                                <li>
+                                    <a href="https://map.kakao.com/link/to/중미산천문대,37.58181230189793, 127.45960831835671"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map2" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 별마로 천문대 -->
+                <div class="content content3 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>별마로 천문대</h4><br><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p> 강원도 영월은 별 관측 일수가 국내 평균 100일인데 비해 160일~190일에 달하는 별이 쏟아지는 지역이다.<br>
+                                        ‘별이 보이는 고요한 정상’이라는 뜻을 가진 영월의 대표적인 명소 별마로 천문대는 시민천문대 최상의 조건인 해발 799.8m에 자리하고 있다.
+                                    </p>
+                                </li><br>
+                                위치정보<li>강원도 영월군 영월읍 천문대길 397</li><br>
+                                <li><a href="https://www.yao.or.kr:451/introduce.asp?location=001">more info</a>
+                                </li>
+                                <li>
+                                    <a href="https://map.kakao.com/link/to/별마로천문대,37.2058498764794, 128.48582956080543"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map3" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 문치재 -->
+                <div class="content content4 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>문치재 전망대</h4><br><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p>해발 1,000m가 넘는 산에 둘러싸인 북동마을로 들어가는 문과 같은 존재란 의미를 가진 문치재는 열 두 굽이로 꺾어지는 정선의 드라이브 코스로
+                                        유명하다.<br>
+                                        밤이 되면 도로 정면에 북극성이 보여 별 궤적을 찍으러 오는 명소이다.
+                                    </p>
+                                </li><br>
+                                <li>
+                                    <h5>위치정보</h5>
+                                    <p>강원 정선군 화암면 북동리 107-1</p>
+                                </li><br>
+
+                                <li>
+                                    <a href="https://map.kakao.com/link/to/문치재전망대,37.36654163323698, 128.79871301240576"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map4" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 육백마지기 -->
+                <div class="content content5 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>육백마지기</h4><br><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p>육백마지기라는 이름은 ‘볍씨 육백 말을 뿌릴 수 있을 정도로 넓은 평원’을 뜻한다.<br>
+                                        아름다운 경관이 입소문이 나며 일몰 사진 촬영, 별 관측, 차박(차에서 숙박하는 캠핑) 등의 목적으로 많은 관광객이 찾는다.
+                                    </p>
+                                </li><br>
+                                <li>
+                                    <h5>위치정보</h5>
+                                    <p>강원 평창군 미탄면 회동리 1-18</p>
+                                </li><br>
+                                <li>
+                                    <a
+                                        href="https://tour.pc.go.kr/Home/H20000/H20200/placeDetail?place_no=231&viewType=gallery&curationGroup=1&page=1&pageSize=12&search_column=1&search_keyword=%EC%9C%A1%EB%B0%B1%EB%A7%88%EC%A7%80%EA%B8%B0&order_column=1&place_type=12">
+                                        more info</a>
+                                </li>
+                                <li>
+                                    <a href="https://map.kakao.com/link/to/육백마지기,37.407429093134716, 128.51256628515625"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map5" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 조경철 천문대 -->
+                <div class="content content6 section">
+                    <!-- 내용 및 위치 정보 -->
+                    <div class="box">
+                        <div class="info">
+                            <h4>조경철 천문대</h4><br>
+                            <ul>
+                                <li>
+                                    <h5>소개</h5>
+                                    <p>광덕산 정상에 위치한 이 곳은 해발 1,010m로 우리나라의 시민 천문대 중 가장 높은 고도를 자랑한다.<br>
+                                        아폴로박사 조경철 박사님의 업적을 기리기위해 지어진 천문대로 육안으로도 은하수를 볼 수 있기 때문에 인기가 많다.
+                                    </p>
+                                </li><br>
+                                <li>
+                                    <h5>위치정보</h5>
+                                    <p>강원 화천군 사내면 천문대길 431</p>
+                                </li><br>
+                                <li><a href="http://www.apollostar.kr/">more info</a>
+                                </li>
+                                <li>
+                                    <a href="https://map.kakao.com/link/to/조경철천문대,38.118577831667984, 127.43392343087045"
+                                        class="find">길찾기</a>
+                                </li>
+                            </ul>
+                            <!-- 카카오맵 -->
+                            <div>
+                                <div id="map6" style="width:250px;height:200px; margin: 20px auto;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="footer">
+                        <div class="link">
+                            <div class="grab">
+                                <a class="fir" href="https://www.kasi.re.kr/kor/post/privacy"
+                                    target="_blank">개인정보처리방침</a>
+                                <a href="/pageView/36">저작권정책</a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div><br>
+
+
+                        <div class="grab">
+                            <address class="address">(34055) 대전광역시 유성구 대덕대로 776 &nbsp;&nbsp;&nbsp; 전화: 080-373-3333(무료)
+                                / 042-865-3333(유료) &nbsp;&nbsp;&nbsp; 천문정보 ARS: 042-865-3332 &nbsp;&nbsp;&nbsp; 팩스:
+                                042-861-5610</address>
+                            <p class="copyright">Copyright (C) 2017 Korea Astronomy and Space Science Institute. All
+                                Rights Reserved.</p>
+
+
+
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!--  <footer>
+        <div class="footerline">
+            <div class="footer-top">
+                <span><a href="#" class="">개인정보처리방침</a></span>
+                <span><a href="#" class="">저작권정책</a></span>
+                <span><a href="#" class="">관련사이트</a></span>
+            </div>
+        </div>
+        <div class="footerline">
+            <div class="footer-bottom">
+                <span>서울특별시 강남구 테헤란로7길 7</span>
+                <span>전화: 080-123-4567 / 02-123-5678</span>
+                <span>천문정보 ARS: 000-000-0000</span>
+                <span>팩스: 000-000-0000</span><br>
+                <span>Copyright (C) 2017 Korea Astronomy and Space Science Institute. All Rights Reserved.</span>
+            </div>
+        </div>
+    </footer> -->
+
+
+    <!-- 안반데기 지도 -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer1 = document.getElementById('map1'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.62289878365519, 128.73914123305113), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map1 = new kakao.maps.Map(mapContainer1, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(37.62289878365519, 128.73914123305113);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map1);
+
+        var iwContent = '<div style="padding:5px;">안반데기<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.62289878365519, 128.73914123305113); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map1,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map1, marker); 
+    </script>
+
+    <!-- 중미산 천문대 지도 -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer2 = document.getElementById('map2'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.58181230189793, 127.45960831835671), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map2 = new kakao.maps.Map(mapContainer2, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(37.58181230189793, 127.45960831835671);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map2);
+
+        var iwContent = '<div style="padding:5px;">중미산 천문대<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.58181230189793, 127.45960831835671); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map2,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map2, marker); 
+    </script>
+
+    <!-- 별마로 천문대 지도 -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer3 = document.getElementById('map3'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.2058498764794, 128.48582956080543), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map3 = new kakao.maps.Map(mapContainer3, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(37.2058498764794, 128.48582956080543);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map3);
+
+        var iwContent = '<div style="padding:5px;">별마로 천문대<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.2058498764794, 128.48582956080543); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map3,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map3, marker); 
+    </script>
+
+    <!-- 문치재 지도 -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer4 = document.getElementById('map4'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.36654163323698, 128.79871301240576), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map4 = new kakao.maps.Map(mapContainer4, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(37.36654163323698, 128.79871301240576);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map4);
+
+        var iwContent = '<div style="padding:5px;">문치재 전망대<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.36654163323698, 128.79871301240576); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다 
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map4,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map4, marker); 
+    </script>
+
+    <!-- 육백마지기 지도 -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer5 = document.getElementById('map5'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(37.407429093134716, 128.51256628515625), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map5 = new kakao.maps.Map(mapContainer5, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(37.407429093134716, 128.51256628515625);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map5);
+
+        var iwContent = '<div style="padding:5px;">육백마지기<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(37.407429093134716, 128.51256628515625); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다 
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map5,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map5, marker); 
+    </script>
+
+    <!-- 조경철 천문대 지도-->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c47d7ea115c13cc32f87463b97e65d3b"></script>
+    <script>
+        var mapContainer6 = document.getElementById('map6'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(38.118577831667984, 127.43392343087045), // 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+        var map6 = new kakao.maps.Map(mapContainer6, mapOption);
+
+        // 마커가 표시될 위치입니다 
+        var markerPosition = new kakao.maps.LatLng(38.118577831667984, 127.43392343087045);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map6);
+
+        var iwContent = '<div style="padding:5px;">조경철 천문대<br></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwPosition = new kakao.maps.LatLng(38.118577831667984, 127.43392343087045); //인포윈도우 표시 위치입니다
+        iwRemoveable = true;
+        // 인포윈도우를 생성합니다 
+        var infowindow = new kakao.maps.InfoWindow({
+            map: map6,
+            position: iwPosition,
+            content: iwContent,
+            removable: iwRemoveable
+        });
+
+        // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+        infowindow.open(map6, marker); 
+    </script>
+
+    <script>
+        AOS.init(); // 자바스크립트로 init()을 해야 동작한다.
+    </script>
+
+
+
+
+
+</body>
+
+</html>

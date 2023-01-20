@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="op" onchange="func1()">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+
+    <input type="text" id="text">
+
+    <div id="db">db클릭이벤트</div>
+
+    
+    <script>
+
+        //1. 위에 있는 select와 input에 여러분이 원하는 방법으로 change이벤트 걸어보기
+        //2. div에는 dbclick 이벤트로 걸어보세요.
+
+        //인라인 이벤트
+        function func1(){ 
+            console.log("벌써 새해가 왔군요");
+        }
+        
+
+        //기본이벤트
+        var a = document.getElementById("text");
+        a.onchange = function(){
+            console.log("그리고 하루가 지났습니다");
+        }
+
+        //표준이벤트
+        var b = document.getElementById("db");
+        b.addEventListener("dblclick", function(){
+            console.log("1월 2일 입니다요~!");
+        });
+        
+
+        /*  var sel = document.getElementById("sel");
+        sel.onchange = function() {
+            console.log("체인지이벤트");
+        }
+
+        function 함수(){
+            console.log("체인지이벤트");
+        }
+
+        var db = document.getElementById("db");
+        db.addEventListener("dblclick", function(){
+            console.log("더블클릭이벤트");
+        }) */
+
+
+
+
+    </script>
+</body>
+</html>

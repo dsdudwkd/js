@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" class="stop">멈췅</button>
+
+    <script>
+        //일정 주기마다 동작
+       var id = window.setInterval(function(){ //반환이 number
+            console.log('실행됨')
+        }, 1000); //(실행시킬 함수, 인터벌값);
+
+        /* //인터벌 중지
+        window.clearInterval(id); //시작도 안함 */
+
+        //버튼 클릭 시 인터벌 중지
+        var stop = document.querySelector(".stop");
+        stop.onclick = function () {
+            window.clearInterval(id);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        func1(); //func1 실행, 함수 호출(선언적 함수에선 호이스팅(당겨 호출) 가능)/함수 호출을 해야 값 출력 됨
+        var result = func2(); //func2 실행, 함수 호출 및 return값을 result 변수에 저장
+        console.log(result); //func반환, return값 출력
+        var result2 = func3(1, 2, 3); //func3 실행, 매개 변수 있는 return값 result2 변수에 저장
+        console.log(result2); //6
+        
+       
+
+        function func1() {
+            console.log('func1 실행');
+        }
+
+        function func2() {
+            console.log('func2 실행')
+            return 'func2반환';
+        }
+
+        function func3(a, b, c) { 
+            console.log('func3 실행');
+            return a + b + c;
+        }
+
+        //함수를 변수에 저장 가능
+        var a = func1; // var a = func1();와 같은 의미 -> 반환을 받겠다는 의미
+        console.log(a); // func1() { console.log('func1 실행'); }
+        a(); //func1 실행, func1함수를 저장한 변수 a 호출
+
+    </script>
+</body>
+</html>

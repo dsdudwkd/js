@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>js카운트 만들기 - this, innerHTML, value속성을 사용하면 된다.</h3>
+
+    <input type="text" value="0" id="num">
+    <button onclick="plus(this)" id="btn1"></button>
+    <button onclick="minus(this)" id="btn2"></button>
+
+    <script>
+        var num = document.getElementById("num");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+
+        btn1.innerHTML = "증가";
+        btn2.innerHTML = "감소";
+
+        function plus(a) {
+            num.value++;
+            //console.log(num.value);
+        }
+        function minus(a) {
+
+            //0미만으로 하면 0에서 클릭 누른 후 -1이 된 후 조건문이 실행되어 0 이하로 조건 걸기
+            if (num.value <= 0) { 
+                alert("카운트 값은 0보다 작을 수 없습니다");
+                return; //함수 종료
+            }
+            num.value--; //감소시키는 게 조건문보다 위에 있으면 음수가 나온 후 조건문 실행되어 의미가 없음
+        }
+
+
+    </script>
+</body>
+
+</html>

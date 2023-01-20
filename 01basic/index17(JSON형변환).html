@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = [
+            {id: 'aaa123', title: 'aaa', content:'a...'}, //0번째 객체
+            {id: 'bbb123', title:'bbb', content:'b...'}, //1번째 객체
+            {id: 'ccc123', title:'ccc', content:'c...'} //2번째 객체
+        ];
+
+        console.log(data); //[{…}, {…}, {…}]
+        console.log(typeof data); //object
+        //JS객체를 JSON 문자열로 형 변환
+        var str = JSON.stringify(data); //변환된 결과를 반환
+        console.log(str); //[{"id":"aaa123","title":"aaa","content":"a..."},{"id":"bbb123","title":"bbb","content":"b..."},{"id":"ccc123","title":"ccc","content":"c..."}]
+
+        //JSON 문자열을 JS객체로 형 변환
+        var obj = JSON.parse(str);
+        console.log(obj); //[{…}, {…}, {…}]
+
+        //JSON 문자열을 객체로 변경할 때 꼭 지켜야 할 규칙
+        //키(key)와 값(value)을 "" 처리해야 함
+        var result = JSON.parse('{"id":"aaa123"}'); //키와 값을 쌍따옴표로"" 감싸고, 전체를 홑따옴표''로 묶어야 함
+        console.log(result); //{id: 'aaa123'}
+    </script>
+</body>
+</html>

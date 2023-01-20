@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 카카오 SDK로드 -->
+    <script src="js/kakao.min.js"></script>
+</head>
+
+<body>
+
+    <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+        <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222" alt="카카오 로그인 버튼" />
+    </a>
+
+
+    <script>
+        //1. 카카오 SDK초기화
+        Kakao.init("c47d7ea115c13cc32f87463b97e65d3b");
+        console.log(Kakao.isInitialized());
+
+        //2. 카카오 로그인 화면 띄우기
+        //로그인 성공 시 페이지 이동 5번
+        function loginWithKakao() {
+            Kakao.Auth.authorize({
+                redirectUri: 'http://172.30.1.71:5500/09AJAX/index05.html',
+            });
+        }
+
+        //3. 인가코드 받아오기
+        var URLSearch = new URLSearchParams(location.search);
+        //console.log(URLSerach.get("code"))
+        if (URLSearch.get("code") != null) {
+            ajax();
+        }
+
+        //4.토큰 발급요청 (POST방식, form형식)
+        function ajax() {
+
+            /*  //JSON형식의 POST 요청
+             var data = {
+                 grant_type : "authorization_code",
+                 client_id : "c474721877b4c839591d3eb06b95a595",
+                 redirect_uri :"http://172.30.1.71:5500/09AJAX/index05.html",
+                 code : URLSearch.get("code")
+             }
+ 
+             fetch("https://kauth.kakao.com/oauth/token", {
+                 //키:값, 의 형태
+                 method: "POST",
+                 headers: {
+                     "Content-Type": "application/json"
+ 
+                 },
+                 body: JSON.stringify(data)
+             })
+             .then(function(res){
+                 console.log(res);
+             }) */
+
+            //form형식의 POST 요청
+            //formData 객체 이용 or 문자열
+            var url = "http://172.30.1.71:5500/09AJAX/index05.html";
+
+            var data = "grant_type=authorization_code" +
+                "&client_id=c474721877b4c839591d3eb06b95a595" +
+                "&redirect_uri=" + url +
+                "&code=" + URLSearch.get("code");
+
+
+            fetch("https://kauth.kakao.com/oauth/token", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
+                },
+                body: data
+            })
+                .then(function (res) {
+                    //console.log(res);
+                    return res.json(); //JSON데이터 이므로 형변환해서 받아오기
+                })
+                .then(function (data) {
+                    console.log(data);
+                    //예를 들어 sessionStorage or cookie 저장
+                    sessionStorage.setItem("access_token", data.access_token);
+
+                    //카카오 API함수
+                    Kakao.Auth.setAccessToken(data.access_token);
+
+                    //토큰을 발급 받고 사용자 정보 받아오기 호출
+                    requestUserInfo();
+                })
+        }
+
+        //5. 사용자정보 받아오기
+        function requestUserInfo() {
+            //카카오 API 내장함수 호출
+            Kakao.API.request({ //Promise객체
+                url: '/v2/user/me',
+            })
+                .then(function (res) {
+                    console.log(res);
+                    console.log(res.kakao_account.email); //사용자 이메일
+                    console.log(res.kakao_account.profile.nickname); //사용자 닉네임
+                    console.log(res.kakao_account.profile.profile_image_url); //사용자 프로필 사진
+
+                    //이 정보를 가지고 우리 데이터베이스에서 조회 or 로그인하는 작업으로 연결
+                    //처리하는 페이지 (성공페이지x)
+                    location.href = "index06.html";
+                    //창을 끄면 sessionStrage 안의 객체 초기화 상태로 된다
+                    sessionStorage.setItem("info", JSON.stringify({id: res.kakao_account.email,
+                                                                   nick: res.kakao_account.profile.nickname}))
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+        
+    </script>
+</body>
+
+</html>

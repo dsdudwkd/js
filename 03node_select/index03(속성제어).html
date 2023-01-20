@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>태그의 속성 제어하기</h3>
+
+    <input type="text" id="input" required>
+    <div class="msg"></div> <!-- input칸에 입력한 값을 보여줄 div -->
+    <button type="button" id="btn">확인</button>
+
+    <script>
+        //태그의 속성은 = .속성명 으로 접근한다
+        var input = document.getElementById("input"); //태그 가져오기
+
+        console.log(input.type); //text, type 속성
+        console.log(input.id); //input, id 속성
+        console.log(input.value); //value값 없음, value 속성
+        console.log(input.required); //true, required 속성 
+
+        input.value = "값 변경"; //required로 인해 처음부터 입력되어 있을 값
+
+        //태그 사이에 있는 값(문자)을 HTML 형식으로 얻음 - innerHTML
+        var btn = document.getElementById("btn"); 
+        console.log(btn.innerHTML); //확인
+
+        var msg = document.querySelector(".msg");
+
+        //버튼을 누르면 사용자가 입력한 value를 가지고 와서 msg 태그 사이에 출력
+        btn.addEventListener("click", function () {
+            var a = input.value; //user가 입력한 value값
+            msg.innerHTML = a;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" class="todo" placeholder="할일을 작성해보세요">
+    <button class="btn">추가</button>
+
+    <ul class="list">
+        <!--
+        <li>내용</li>
+        -->
+    </ul>
+
+    <script>
+        var todo = document.querySelector(".todo"); //input태그
+        var list = document.querySelector(".list"); //ul태그
+        var btn = document.querySelector(".btn");
+        
+        btn.onclick = function() {
+            var li = document.createElement("li") //li태그 생성
+            var a = document.createElement("a"); //a태그 생성
+            a.href = '#';   //생성된 a태그에 href='#' 추가
+            a.innerHTML = todo.value; // todo(사용자 입력값) a태그 사이에 넣기
+            todo.value = ""; // 작성한 후 값 초기화
+            li.appendChild(a);  //li자식으로 a를 넣는다.
+            list.appendChild(li); //list자식으로 li를 넣는다.
+        }
+    </script>
+
+    <hr>
+
+    <div id ="addList">
+
+    </div>
+    <button id="add">추가</button>
+
+    <script>
+        
+        window.onload = function() {
+            var addList = document.getElementById("addList");
+            var ul = document.createElement("ul"); //ul 생성(ul은 하나만 생성)
+            for(var i = 1; i<=10; i++) { //li 10개 생성하기 위해 반복문 작성
+                var li = document.createElement("li");
+                li.innerHTML = "리스트" + i;
+                ul.appendChild(li);
+            }
+            addList.appendChild(ul);
+        }
+
+        //
+       var add =  document.getElementById("add");
+       add.onclick = function() {
+            var li = document.createElement("li");
+            li.innerHTML = "추가된 리스트" ;
+
+            //새롭게 addList > li 태그를 얻음 
+           var ul = document.querySelector("#addList > ul ");
+            ul.appendChild(li);
+       }
+    </script>
+</body>
+</html>

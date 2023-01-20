@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="ajax()">json파일 ajax요청</button>
+
+    <div class="result"></div>
+
+    <script>
+        function ajax() { 
+            fetch("hi.json")
+            .then(function(res){
+                return res.json(); //json 형 변환
+            })
+            .then(function(data){
+                // console.log(data);
+                // console.log(data.id); //
+                // console.log(data["id"]);
+                var result = document.querySelector(".result");
+                result.innerHTML = data["topic"]; //화면 전환 없이 값 반환
+            })
+        }
+    </script>
+
+    <button onclick="ajax2()">xml데이터 ajax요청</button>
+
+    <script>
+        function ajax2() {
+            
+            fetch("hi.xml")
+            .then(function(res){
+               return res.text(); //먼저 텍스트 문자로 형 변환
+            })
+            .then(function(data){
+                var result = new DOMParser().parseFromStrin (data, "text/xml");
+                // console.log(result); //DOM형식의 document문서 객체 반환
+                // console.log(result.querySelector("datas")); //
+                
+                 var arr = result.querySelectorAll("datas > data");
+                // console.log(arr);
+
+                for(var i=0; i<arr.length; i++){
+                    console.log(arr[i].querySelector("name").innerHTML);
+                    console.log(arr[i].querySelector("version").innerHTML);
+                    console.log(arr[i].querySelector("price").innerHTML);
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>

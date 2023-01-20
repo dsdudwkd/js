@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이 문제는 셀렉트로 선택할때마다 제목(<h3>)이 바뀜 -->
+    <!-- 그래서 변경되는 부분부터 먼저 파악해야함 웹에서 변경되는 부분은 <h3>태그 부분 -->
+    <h3 id="main">단어를 선택하세요</h3> <!-- 변경을 해야해서 id값을 주고 해당 id값을 통해 script 영역에서 해당 태그를 가져올 수 있도록 함 -->
+    <select id="st"> <!-- 셀렉트로 선택할 때 마다 제목이 변경되니 해당 부분에 이벤트(스위치같은거)가 작동해야함 이벤트를 작동 시키려면 
+                            script 영역으로 가져와야 하기 때문에 구분해주는 id값을 넣어줌, document.getElementById를 통해 해당 태그 id 값으로 
+                            <select>태그를 script 영역으로 가져와 변수에 담아줄 수 있음  -->
+        <option value="선택">선택</option> <!-- select로 option에 접근해서 선택하는 원리 -->
+        <option value="hello">hello</option> <!-- 하지만 선택을 하더라도 value를 설정하지 않으면 script영역에서 value값은 없다고 나옴  -->
+        <option value="ohayo">ohayo</option> <!-- 그래서 각 option태그마다 value 값을 넣어줌 향후 웬만하면 HTML태그 사이 값이랑 똑같이 하는게 좋음. -->
+        <option value="안녕">안녕</option>
+    </select>
+
+    <script>
+        var st = document.getElementById("st"); /* html 구역 id 값에 해당하는 태그를 가져옴(st에 해당하는 태그는 <select>) */
+        var main =document.getElementById("main");/* html 구역 id 값에 해당하는 태그를 가져옴( main에 해당하는 태그는 <h3>) */
+            /* getElementById를 통해 html 구역에서 가져온 태그를 var 변수들에 담아줌 */
+
+        st.addEventListener('change',function(){ /* st.addEventListener은 st변수(<select>태그 담겨져 있음)
+                                                 그리고 addEventListener메서드는 st변수에 담긴 태그에 이벤트를 넣어줌('이벤트 구문', 함수) 
+                                                 여기서는 값이 변경될 때 몬가 일어나는 change 이벤트 구문을 사용했고 함수부분은 
+                                                 따로 익명함수를 써서 바로 실행되게 함 
+                                                 즉 여기서는 변수에 담긴 태그의 값이 변할 때 이벤트가 작동한다는 것과 이벤트가 작동할 때 , 함수 부분이 실행됨*/
+            console.log(st.value);/* 콘솔을 통해 해당 셀렉트 태그 안에 포함된 <option>태그에서 value를 가져옴 */
+            if(st.value === "hello"){ /* st.value 값이 "hello" 라면 */
+                main.innerHTML = "영어 입니다."; /* main 변수에 담긴 <h3>태그에서 <h3></h3>태그 사이 값을 변경함 
+                                                    변수.innerHTML은 해당 변수에 담긴 태그에서 태그 사이 값을 가져오거나 = 을 사용해서 변경(대입)이 가능*/
+            } else if(st.value === "ohayo") { /* 위와 동일 */
+                main.innerHTML = "일본어 입니다.";
+            } else if(st.value === "안녕") {
+                main.innerHTML = "한국어 입니다.";
+            } else {
+                main.innerHTML = "단어를 선택하세요";
+            }
+        })
+    </script>
+
+</body>
+</html>

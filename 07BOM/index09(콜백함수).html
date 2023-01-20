@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>콜백함수</h3>
+
+    <script>
+        function geolocation(success, fail) {
+
+            //처리가 몇 초가 걸리는 지..?
+            //5초 뒤에 적용하기 
+            setTimeout(function () {
+
+                //성공
+                //실행 결과를 매개변수로 받아와서 실행
+                success("결과");
+
+                //대신 실행
+
+            }, 5000);
+        }
+
+        /* 
+        //밑에 함수와 같은 내용
+         geolocation(function(result){
+              console.log(result);
+          },function(result){
+              //console.log(result);
+          }); */
+
+        geolocation(success, fail);
+
+        function success(result) {
+            console.log(result); //실행되는데 5초가 걸리고, 성공 시에 result라는 변수로 결과를 받을 수 있음
+        }
+        function fail(result) {
+            //console.log(result);
+        }
+    </script>
+</body>
+
+</html>

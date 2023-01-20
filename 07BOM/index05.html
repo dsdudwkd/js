@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    1번 페이지<br>
+
+    <button onclick="location.href='index06.html'">페이지이동</button>
+
+    <h3>replaceState</h3>
+
+    <button onclick="func()">기록변경하기</button>
+
+    <script>
+        function func() {
+            //history.pushState('', '', '변경.html'); //브라우저 기록 추가
+            //history.replaceState('', '', '변경.html'); //브라우저의 기록을 변경
+            history.replaceState('', '', null); 
+        }
+
+        //기록을 변경해서 사용할 데이터를 ''로 바꿔주면 사용자가 뒤로가기 버튼을 누른 것을 감지할 수 있다
+        //history.state 속성으로 확인이 가능함
+         if(history.state == '') { //history.state가 공백('')일 경우뒤로가기를 통해 넘어왔다는 걸 알림
+             alert("기록이 변경되었습니다");
+             console.log("ddd");
+         }
+    </script>
+</body>
+
+</html>

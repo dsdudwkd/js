@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>this의 의미</h3>
+
+    <button id="btn">이벤트에서의 this</button>
+
+    <script>
+        //함수, 아무것도 없는 것에서의 this -> window라는 최상위 객체
+        //이벤트에서의 this -> 태그 자신
+
+        var a = 1; //전역 변수 -> window에 선언됨-> 개발자도구에 들어가서 window 확인하면 a: 1;로 선언되어있음
+
+        function aaa() {
+            var a = 10; //지역변수
+            console.log(a); //10, 지역변수에 접근
+            console.log(this);//window -> a: 1
+            console.log(this.a);//1, 전역변수에 접근
+        }
+        aaa();
+
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", function(){ 
+            console.log(this); // <button id="btn">이벤트에서의 this</button>
+            
+        });
+    </script>
+</body>
+</html>

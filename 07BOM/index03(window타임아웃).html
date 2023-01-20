@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button class="stop">5초뒤에 경고창이 나오는데 중지하려면 누르세요</button>
+
+    <script>
+        //window 생략 가능
+        //5초 뒤에 동작
+        var id = setTimeout(function(){
+            alert("5초 뒤에 출력됩니다");
+        }, 5000);
+
+        var stop = document.querySelector(".stop");
+        stop.onclick = function() {
+            clearTimeout(id);
+        }
+    </script>
+</body>
+</html>

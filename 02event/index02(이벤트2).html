@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">기본이벤트</button>
+
+    <script>
+        //무조건 취득할 태그보다 아래에 있어야 작용, 위에 있으면 변수에 null값이 저장되는 것이라 작동x
+        var a = document.getElementById("btn");
+        //console.log(a); //a는 태그 자신
+        a.onclick = function(){ //function이 a의 onclick에 저장되는 것 => 클릭하면 내용이 결과로 나온다
+            console.log('기본이벤트!') //기본이벤트!
+            console.log(this == a); //true, this는 태그 자기 자신 
+            console.log(a); //<button id="btn">기본이벤트</button>
+        }
+
+    </script>
+</body>
+</html>

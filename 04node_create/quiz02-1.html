@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    
+
+
+        <h1>할 일 목록 만들기</h1>
+        <h3 class="title"></h3>
+
+        <button type="button" id="del">전체 삭제하기</button><br>
+
+        <div class="block">
+            <input type="text" placeholder="이름을 적으세요" class="name">
+            <button type="button" onclick="btn1()">확인</button>
+        </div>
+
+        <div class="div">
+            <input type="text" placeholder="당신의 할일을 적으세요" class="input">
+            <button type="button" onclick="btn2()">확인</button>
+        </div>
+
+
+        <ul class="todo"></ul>
+   
+    <script>
+        function btn1() {
+            var name = document.querySelector(".name");
+            var block = document.querySelector(".block");
+            //console.log(name.value);
+            var title = document.querySelector(".title");
+            title.innerHTML = name.value + "님 반갑습니다.";
+            block.style.display = "none";
+        }
+
+        function btn2() {
+            var input = document.querySelector(".input");
+            var ul = document.querySelector("ul");
+            var li = document.createElement("li");
+            ul.appendChild(li);
+            //console.log(ul);
+            //li.innerHTML = input.value + '<button type="button" dblclick="remove(this)">삭제</button>';
+            li.innerHTML = input.value;
+            input.value = ""; //사용자 입력값 초기화
+
+            var btn = document.createElement("button");
+            btn.innerHTML = "삭제(더블클릭)";
+            btn.ondblclick = remove;
+            li.appendChild(btn);
+
+            var upbtn = document.createElement("button");
+            upbtn.innerHTML = "위로 이동";
+            upbtn.onclick = up; //클릭 시 up함수 실행
+            li.appendChild(upbtn); //upbtn을 li의 자식으로 넣는 작업
+
+            var downbtn = document.createElement("button");
+            downbtn.innerHTML = "아래로 이동";
+            downbtn.onclick = down;
+            li.appendChild(downbtn);
+        }
+        function remove() {
+            this.parentElement.remove();
+        }
+
+        function up() {
+            var current = this.parentElement; //button에서 한 단계 위 부모요소가 li
+            var previous = current.previousElementSibling;
+            var ul = document.querySelector(".todo");
+            
+            if(confirm("위로 이동하시겠습니까?")){
+                ul.insertBefore(current, previous);
+
+            }
+
+            if(previous == null){
+                alert('처음 입니다.');
+                return;
+            }
+        }
+        function down() {
+            var current2 = this.parentElement;
+            var next = current2.nextElementSibling;
+            var ul2 = document.querySelector(".todo");
+
+            if(confirm("아래로 이동하시겠습니까?")){
+                ul2.insertBefore(next, current2);
+
+            }
+
+            if(next == null){
+                alert('마지막 입니다.');
+                return;
+            }
+        }
+
+        del.onclick = function deleteAll() {
+            var del = document.getElementById("id");
+            var li = document.querySelectorAll("li");
+            //console.log(li); //전체 배열
+            for(var i=0; i<li.length; i++){
+                li[i].remove();
+            }
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

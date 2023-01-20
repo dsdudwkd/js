@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 외부 js링크 (상대 or 절대 경로) -->
+    <!-- js링크 순서는 반드시 head에만 있는 것은 아님, 파일에 렌더링(화면 해석) 순서에 따라 달라질 수 있다 -->
+    <script src="index01.js"></script>
+</head>
+<body>
+    
+    <script>
+         console.log('hello'); 
+        /* 동일 변수명으로 선언 가능하지만 주의! */
+        var a = 10;
+        var a = 20;
+        a =100; //변수의 변경
+        console.log(a); //콘솔 출력
+        document.write(a); //HTML화면으로의 출력(많이 사용x)
+        /* alert(a); */ //경고창, 경고창의 확인 누르기 전까지 다음으로 넘어가지 x
+        /* confirm(a); */ //확인창
+
+        
+
+    </script>
+
+</body>
+</html>

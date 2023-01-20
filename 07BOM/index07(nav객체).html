@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(navigator); //Navigator, 현재 머무르고 있는 브라우저의 정보를 얻어 올 수 있는 객체
+
+        //userAgent는 appVersion과 비슷, 내가 접속한 브라우저 정보 소문자로 나열
+        var userAgent = navigator.userAgent.toLowerCase(); 
+        console.log(userAgent); //mozilla/5.0 (windows nt 10.0; win64; x64) applewebkit/537.36 (khtml, like gecko) chrome/108.0.0.0 safari/537.36
+        
+        console.log(userAgent.lastIndexOf("chrome")); //81
+
+        //브라우저가 어떤 건지 확인 하기 위한 작업
+        if(userAgent.lastIndexOf("edg") != -1){ //찾았다는 의미, indexOf가 포함된 글자가 없으면 -1을 반환하므로
+            console.log("엣지");
+        } else if(userAgent.lastIndexOf("firefox") != -1){
+            console.log("파이어폭스");
+        } else if(userAgent.lastIndexOf("whale") != -1){
+            console.log("웨일");
+        } else if(userAgent.lastIndexOf("chrome") != -1){
+            console.log("크롬"); 
+        } //결과: 내 브라우저는 크롬
+    </script>
+</body>
+</html>

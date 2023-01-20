@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num1 = "10"; //문자 쌍따옴표ok
+        var num2 = '10'; //문자 홑따옴표ok
+        var num3 = 10; //숫자
+
+        //변수의 변경 - 타입을 유지하지 않아도 됨
+        num1 = 3.14;
+        num2 = 10;
+        num3 = '10';
+
+        //숫자+숫자 = 숫자, 숫자+문자 = 문자
+        var result = num1 + num2 + num3;
+        console.log(result); //13.1410 ->문자
+        console.log(10+3.14); //13.14
+        console.log(20+'20'); //2020 ->문자
+        console.log(10+true); //11
+        console.log(10+undefined); // NaN -> 잘못된 연산
+
+        //데이터타입 number, str, boolean, undefined, null
+        var bool = true;
+        console.log(bool);
+
+        //undefined - 초기값을 지정하지 않으면 나타남
+        var un;
+        console.log(un); //undefined
+
+        //null - 초기값을 지정했지만 값이 존재하지 않는 경우
+        var tag = document.getElementById("a");
+        console.log(tag);
+
+        //데이터 타입을 알려주는 키워드 - typeof
+        console.log(typeof num1); //number
+        console.log(typeof num3); //String
+        console.log(typeof bool); //boolean
+        console.log(typeof un); //undefined
+        console.log(typeof tag); //object
+        
+    </script>
+</body>
+</html>

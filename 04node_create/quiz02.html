@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <h1>할 일 목록 만들기</h1>
+    <h3 class="title"></h3>
+
+    <div class="block">
+        <input type="text" placeholder="이름을 적으세요" class="name">
+        <button type="button" onclick="btn1()">확인</button>
+    </div>
+
+    <div class="div">
+        <input type="text" placeholder="당신의 할일을 적으세요" class="input">
+        <button type="button" onclick="btn2()">확인</button>
+    </div>
+
+
+    <ul class="todo"></ul>
+
+    <script>
+        function btn1() {
+            var name = document.querySelector(".name");
+            var block = document.querySelector(".block");
+            //console.log(name.value);
+            var title = document.querySelector(".title");
+            title.innerHTML = name.value + "님 반갑습니다.";
+            block.style.display = "none";
+        }
+
+        function btn2() {
+            var input = document.querySelector(".input");
+            var ul = document.querySelector("ul");
+            var li = document.createElement("li");
+            ul.appendChild(li);
+            //console.log(ul);
+            li.innerHTML = input.value + '<button type="button" onclick="remove(this)">삭제</button>';
+            input.value = ""; //사용자 입력값 초기화
+        }
+
+        function remove(a) {
+            a.parentElement.remove();
+        }
+
+    </script>
+
+</body>
+
+</html>

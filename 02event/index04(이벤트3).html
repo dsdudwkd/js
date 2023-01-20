@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">표준이벤트</button>
+
+    <script>
+        //표준 이벤트는 동일한 이벤트를 체이닝(똑같은 이벤트를 여러 개 적용) 할 수 있다
+        var btn = document.getElementById("btn");
+        /*  //첫 번째 방법
+         btn.addEventListener("click", aaa); //함수명()는 함수를 호출해서 반환을 받겠다는 뜻이라 함수명만 적어야 함 */
+
+        /*  //첫 번째방법의 함수
+         function aaa() {
+             console.log("표준이벤트");
+         } */
+
+        //두 번째 방법1
+        btn.addEventListener("click", function () { //굳이 분리하지 않고 익명함수로도 사용 가능, 위의 결과와 동일
+            console.log("표준이벤트");
+        });
+
+        //두 번째 방법2
+        btn.addEventListener("click", function () { //굳이 분리하지 않고 익명함수로도 사용 가능, 위의 결과와 동일
+            console.log("표준이벤트2");
+        });
+
+
+
+    </script>
+</body>
+
+</html>

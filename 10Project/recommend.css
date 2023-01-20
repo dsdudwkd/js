@@ -1,0 +1,203 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif !important;
+}
+
+section {
+    margin: 0 auto;
+    color: black;
+    overflow: hidden;
+}
+
+/* ======================메뉴==================== */
+.navbar-inverse{
+    margin: 0;
+}
+.menuparent{
+    display: flex;
+    justify-content: flex-end;
+}
+.dropdown-toggle{
+    font-size: 14px;
+    font-weight: 800;
+    
+}
+
+.dropdown-menu > li > a{
+    font-weight: 800;
+}
+.dropdown-menu > li > a:hover{
+    background-color: red;
+    transition-duration: 0.4s;
+}
+
+
+
+
+/* ================제목==================== */
+
+.container {
+    /* width: 1010px; */
+    margin: 0 auto;
+
+}
+
+.wrap {
+    width: 100%;
+
+}
+
+.title {
+    display: flex;
+    height: 100vh;
+    font-family: 'AppleSDGothicNeo', 'Noto Sans KR', sans-serif;
+    border-bottom: solid 0.5px #999999;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.title .inner-title {
+    margin: auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.title .inner-title>h3 {
+    font-weight: 800;
+    font-style: 'Apple SD Gothic Neo';
+    font-size: 30px;
+}
+
+/* ================= 내용 ================= */
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.content {
+    border-bottom: 1px solid #3333;
+    padding-top: 20px;
+    height: 100vh;
+}
+
+.content0 {
+    position:relative;
+    background: url('img/bg5.jpeg');
+}
+
+.content1 {
+    background-image: url('img/bg3.jpg');
+}
+
+.content2 {
+    background-image: url('img/bg1.jpg');
+}
+
+.content3 {
+    background-image: url('img/bg2.jpg');
+}
+
+.content4 {
+    background-image: url('img/bg4.jpg');
+}
+
+.content5 {
+    background-image: url('img/bg5.jpeg');
+}
+
+.content6 {
+    background-image: url('img/bg3.jpg');
+}
+
+/* video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+    height: 100vh;
+    min-height: 100%;
+} */
+
+.box {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.info {
+    text-align: center;
+    margin: auto;
+}
+
+.info h4 {
+    font-weight: 900;
+    font-size: 30px;
+    margin: 0;
+    color: white;
+}
+
+.info ul {
+    margin: 0;
+    color: white;
+}
+
+.info ul:hover {
+    border-radius: 1px solid #fff;
+    transition-duration: 0.4s;
+    background-color: #fff;
+    opacity: 0.7;
+    color: black;
+}
+
+.info ul li h5 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.info>ul>li>a {
+    color: skyblue;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/* ===================footer=================== */
+.footer {
+    margin: 20px 30px;
+    color: white;
+    font-size: 13px;
+    font-weight: 300;
+
+}
+
+.footer .mark {
+    position: absolute;
+    top: 4px;
+    right: 15px;
+    display: inline-block;
+    padding: 0;
+    background: none;
+}
+
+
+.footer .grab {
+    padding-left: 0;
+    padding-right: 0;
+
+}
+
+.footer .grab>a {
+    color: white;
+    font-weight: 700;
+    margin-right: 15px;
+}

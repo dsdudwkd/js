@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .func1{height: 300px; width: 300px; background-color: darkolivegreen;}
+        .func2{height: 200px; width: 200px; background-color: deeppink;}
+        .func3{height: 100px; width: 100px; background-color: aliceblue;}
+    </style>
+
+</head>
+<body>
+    <div class="func1">
+        <div class="func2">
+            <div class="func3">func3자식</div>
+        </div>
+    </div>
+
+    <script>
+
+        /* DOM에서 이벤트 동작 방식은 기본으로 버블링이다
+        버블링: 부모, 자식 모두에 이벤트가 있을 때 이벤트가 자식에서 부모 방향으로 전파되는 특징
+        => 3번 클릭을 하면 3, 2, 1 순으로 실행 */
+       /*  var func1 = document.querySelector(".func1");
+        func1.onclick = function(){
+            alert("func1");
+        }
+
+        var func2 = document.querySelector(".func2");
+        func2.onclick = function() {
+            event.stopPropagation(); //이벤트 버블링 멈춘다, 웬만하면 잘 사용x
+            alert("func2");
+        }
+
+        var func3 = document.querySelector(".func3");
+        func3.onclick = function(){
+            alert("func3");
+        } */
+
+        /* 이벤트 캡쳐링: 부모 자식에 이벤트가 있을 때, 부모에서 자식으로 전파되는 특징
+        addEventListener() 방식으로만 구현해 줄 수 있다 */
+
+         var func1 = document.querySelector(".func1");
+         var func2 = document.querySelector(".func2");
+         var func3 = document.querySelector(".func3");
+
+         func1.addEventListener("click", function() {
+            alert("func1");   
+         }, true);
+
+         func2.addEventListener("click", function() {
+            event.stopPropagation(); // 자신 것은 실행이 안 됨
+            alert("func2");
+         }, true);
+
+         func3.addEventListener("click", function() {
+            alert("func3");
+         }, true);
+    </script>
+</body>
+</html>

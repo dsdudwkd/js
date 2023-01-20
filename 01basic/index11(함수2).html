@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.
+        // function func1() {
+        // }
+        // var a = func1;
+
+        var a = function () {
+            console.log('a함수');
+        }
+        a();
+
+        var b = function (x, y) {
+            return x + y;
+        }
+        var result = b(1, 3);
+        console.log(result); //4
+
+        console.log('------------------------------------');
+
+        //선언적 함수(method1())를 익명함수로 변경해보기
+        function method1(x) {
+            if (x % 2 == 0) {
+                return '짝수';
+            } else {
+                return '홀수';
+            }
+        }
+
+        var c = function (x) {
+            if (x % 2 == 0) {
+                return '짝수';
+            } else {
+                return '홀수';
+            }
+        }
+        console.log(c(23));
+
+        // var c = function(x){
+        //     x % 2 == 0 ? '짝수' : '홀수';
+        // } //같은 결과 식
+        // console.log(c(10));
+
+            console.log("---------------------------------");
+
+        var d = function (x, y, z) {
+            return (x + y + z) / 3;
+        }
+        var result2 = d(3, 4, 5);
+        console.log(result2);
+        //console.log(d(3, 4, 5)); 같은 결과
+
+        console.log('-------------------------------------');
+
+        //즉시실행 함수
+        (function () {
+            console.log('즉시실행');
+        })();
+
+        (function (x, y, z) {
+            console.log('즉시실행:', (x + y + z));
+        })(1, 2, 3); //return 반환문 없음
+
+
+    </script>
+</body>
+
+</html>

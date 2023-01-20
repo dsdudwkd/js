@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    
+    <ul class="box">
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+    </ul>
+
+    <button id="btn">css속성변경</button>
+
+    <script>
+        // var li = document.querySelector(".box li"); //querySelector : 따로 구분해서 변경하고 싶을떄
+        var li = document.querySelectorAll(".box li"); //querySelectorAll: 배열로 나와서 전체를 바꾸고 싶을때
+
+        var btn =document.getElementById("btn");
+        btn.onclick = function () {
+            for(var i =0; i< li.length; i++) {
+                li[i].style.backgroundColor ="black";
+                li[i].style.color ="green";
+            } 
+            // li.style.backgroundColor = "black "; // ex)background-color => -(하이픈)없이 카멜표기법으로 대문자로 바꿔야한다.
+            // li.style.color="green";
+        }
+    </script>
+</body>
+</html>

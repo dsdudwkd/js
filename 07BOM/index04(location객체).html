@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button>새로고침</button> -->
+
+    <button onclick="move()">이동</button>
+
+    <script>
+        //3초마다 새로고침
+        setInterval(function () {
+            location.reload(); 
+        }, 3000)
+
+        //JS 객체의 href 속성 바꾸기(페이지 이동)
+        function move(){
+            location.href = "https://www.naver.com";
+        }
+    </script>
+</body>
+
+</html>
